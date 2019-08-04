@@ -2,7 +2,15 @@ class Application
 
   def call(env)
       resp = Rack::Response.new
-      resp.write "You Lose"
+
+      time = Time.now.hour
+
+      if time <= 12
+      resp.write "Good Morning!"
+
+    elsif time >= 12
+      resp.write "Good Afternoon!"
+    end
 
 
       resp.finish
@@ -11,3 +19,4 @@ class Application
 
 
 end
+
